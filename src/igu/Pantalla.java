@@ -119,19 +119,26 @@ public class Pantalla extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Obtiene el texto del campo de entrada jTextField1, lo divide por comas y lo almacena en un arreglo de Strings
         String[] notas = jTextField1.getText().split(",");
+
+        // Convierte el arreglo de Strings en un arreglo de Doubles
         Double[] notas2 = Arrays.stream(notas).map(Double::valueOf).toArray(Double[]::new);
 
+        // Si el objeto 'notas3' es nulo (no ha sido inicializado), lo inicializa con el nuevo conjunto de notas
+        // Si ya existe, actualiza el arreglo de notas utilizando el método setNotas()
         if (notas3 == null) {
             notas3 = new Notas(notas2);
         } else {
             notas3.setNotas(notas2);
         }
 
+        // Calcula el promedio de las notas y determina cuántas están por encima o por debajo del promedio
         notas3.calcularProm();
         notas3.notaSup();
         notas3.notaInf();
 
+        // Actualiza las etiquetas para mostrar el promedio, las notas superiores e inferiores al promedio
         jLabel4.setText("El promedio es de: " + String.format("%.2f", notas3.getProm()));
         jLabel2.setText("Notas superiores al promedio: " + notas3.getArr());
         jLabel3.setText("Notas inferiores al promedio: " + notas3.getDeb());

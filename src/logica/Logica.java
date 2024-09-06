@@ -14,13 +14,14 @@ import igu.Pantalla;
  */
 public class Logica {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
+        // Crea una nueva instancia de la clase Pantalla
         Pantalla pantalla = new Pantalla();
-        
+
+        // Hace visible la ventana o interfaz gráfica
         pantalla.setVisible(true);
+
+        // Centra la ventana en la pantalla del usuario
         pantalla.setLocationRelativeTo(null);
     }
 }
